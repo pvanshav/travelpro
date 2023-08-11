@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{
+  font-family: Calibri, Helvetica, sans-serif;
+  background-color: pink;
+}
+.container {
+    padding: 50px;
+  background-color: lightblue;
+}
+
+input[type=text], input[type=password], input[type=email], textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 2px 0 15px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+input[type=text]:focus, input[type=password]:focus {
+  background-color: orange;
+  outline: none;
+}
+ div {
+            padding: 5px 0;
+         }
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+.registerbtn:hover {
+  opacity: 1;
+}
+</style>
+    <title>Registration</title>
+</head>
+<body>
+<h1>Register</h1>
+<form action="register" method="post">
+    {% csrf_token %}
+
+    <div class="container">
+            <label>Username : </label>
+            <input type="text" name="username" placeholder="Enter the username"><br>
+            <label>First name : </label>
+            <input type="text" name="first_name" placeholder="Enter your First Name"><br>
+            <label>Last name : </label>
+            <input type="text" name="last_name" placeholder="Enter your Last Name"><br>
+            <label>Email address : </label>
+            <input type="email" name="email" placeholder="Enter your email address"><br>
+            <label>Password : </label>
+            <input type="password" name="Password" placeholder="Enter your password"><br>
+            <label>Confirm password : </label>
+            <input type="password" name="Cpassword" placeholder="Confirm your password"><br>
+            <input type="submit">
+    </div>
+</form>
+{% for msg in messages %}
+<h2>{{msg}}</h2>
+{% endfor %}
+</body>
+</html>
